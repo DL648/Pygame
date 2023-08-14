@@ -2,9 +2,7 @@ import pygame
 Projectiles = []
 
 class Projectile:
-    
    
-    
     def __init__(self,x,y):
         path = "../image/Projectile.png"
         self.image = pygame.image.load(path)

@@ -18,7 +18,7 @@ player = pygame.image.load("../image/player.png")
 player_rect=player.get_rect()
 player_rect.center=(size[0]/2,size[1]*0.9)
 #设置一个计时器
-timer=pygame.time.set_timer(pygame.USEREVENT,1090)
+timer=pygame.time.set_timer(pygame.USEREVENT,150)
 #主循环
 while True:
     #=========保持运行==============
@@ -38,10 +38,9 @@ while True:
            #=========计时器触发======================
         if event.type == pygame.USEREVENT:
              #============生成弹幕===========
-             pro =main.Projectile(player_rect.centerx,player_rect.centery)
+             main.Projectile(player_rect.centerx,player_rect.centery)
              shoot.play()#播放发射音效
-             main.Projectiles.append(pro)#添加到弹幕列表
-    
+             
     #====刷新屏幕以白色填充=======
     screen.fill((255,255,255))
     #把弹幕列表里的弹幕绘制出来
