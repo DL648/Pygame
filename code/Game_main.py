@@ -1,7 +1,7 @@
 import pygame
 import random
 import sys
-from Projectile import Projectile
+import main
 pygame.init()
 #加载音效
 shoot =pygame.mixer.Sound("../Sound/shoot.wav")
@@ -17,10 +17,8 @@ font = pygame.font.Font(None, 56)
 player = pygame.image.load("../image/player.png")
 player_rect=player.get_rect()
 player_rect.center=(size[0]/2,size[1]*0.9)
-#创建弹幕列表
-projectiles =[]
 #设置一个计时器
-timer=pygame.time.set_timer(pygame.USEREVENT,100)
+timer=pygame.time.set_timer(pygame.USEREVENT,1090)
 #主循环
 while True:
     #=========保持运行==============
@@ -40,15 +38,16 @@ while True:
            #=========计时器触发======================
         if event.type == pygame.USEREVENT:
              #============生成弹幕===========
-             pro =Projectile(player_rect.centerx,player_rect.centery)
+             pro =main.Projectile(player_rect.centerx,player_rect.centery)
              shoot.play()#播放发射音效
-             projectiles.append(pro)#添加到弹幕列表
+             main.Projectiles.append(pro)#添加到弹幕列表
     
     #====刷新屏幕以白色填充=======
     screen.fill((255,255,255))
     #把弹幕列表里的弹幕绘制出来
-    for pro in projectiles:
+    for pro in main.Projectiles:
         pro.update(screen)
+        
     #=========绘制玩家
     screen.blit(player,player_rect)
     # 渲染帧率文本
