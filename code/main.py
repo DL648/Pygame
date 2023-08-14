@@ -11,14 +11,13 @@ class Projectile:
         self.rect =self.image.get_rect()
         self.rect.centerx=x
         self.rect.centery=y
-        self.timelife=60
+        self.timelife=600
         Projectiles.append(self)
     
     def update(self,screen):
         screen.blit(self.image, self.rect)
-        self.rect.y-=5
+        self.rect.y-=15
         self.timelife-=1
         if self.timelife<0:
-            self.rect.y+=5
             Projectiles.remove(self)
             del self
