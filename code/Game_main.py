@@ -4,6 +4,7 @@ import sys
 from Projectile import Projectile
 pygame.init()
 
+shoot =pygame.mixer.Sound("../Sound/shoot.wav")
 size=(1080,1920)
 screen =pygame.display.set_mode(size,pygame.SCALED|pygame.FULLSCREEN)
 
@@ -12,7 +13,7 @@ player_rect=player.get_rect()
 player_rect.center=(size[0]/2,size[1]*0.9)
 
 projectiles =[]
-timer=pygame.time.set_timer(pygame.USEREVENT,300)
+timer=pygame.time.set_timer(pygame.USEREVENT,100)
 
 while True:
     for event in pygame.event.get():
@@ -30,6 +31,8 @@ while True:
     
         if event.type == pygame.USEREVENT:
              pro =Projectile(player_rect.centerx,player_rect.centery)
+             shoot.play()
+             
              projectiles.append(pro)
     
     screen.fill((255,255,255))

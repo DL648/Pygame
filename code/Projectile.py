@@ -12,6 +12,6 @@ class Projectile :
   
     def update(self,screen):
         screen.blit(self.image, self.rect)
-        self.rect.y-=5
+        self.rect.y-=10
         
     
