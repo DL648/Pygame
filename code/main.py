@@ -1,5 +1,5 @@
 import pygame
-
+from pygame import Vector2
 Projectile_list =[]
 NPC_list =[]
 
@@ -12,8 +12,10 @@ def UpdateDraw(screen):
         screen.blit(npc.Image,(npc.Position.x,npc.Position.y))
         
         
-def NewNpc(class_name):
+def NewNpc(class_name,Pos=Vector2(50,50)):
     modlue =__import__(class_name)
     cls = getattr(modlue,class_name)
     inst = cls()
+    inst.Position=Pos
     return inst
+

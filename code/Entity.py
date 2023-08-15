@@ -10,7 +10,7 @@ class Entity(ABC):
         self.Defence = 10
         self.Damage = 10
         self.Friendly = True
-        self.Position = Vector2(500, 500)
+        self.Position = Vector2(0, 0)
         self.Velocity = Vector2(0, 0)
         
     @abstractmethod
