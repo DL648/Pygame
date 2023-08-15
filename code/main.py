@@ -1,21 +1,19 @@
 import pygame
-Projectiles = []
 
-class Projectile:
-   
-    def __init__(self,x,y):
-        path = "../image/Projectile.png"
-        self.image = pygame.image.load(path)
-        self.rect =self.image.get_rect()
-        self.rect.centerx=x
-        self.rect.centery=y
-        self.timelife=600
-        Projectiles.append(self)
-    
-    def update(self,screen):
-        screen.blit(self.image, self.rect)
-        self.rect.y-=15
-        self.timelife-=1
-        if self.timelife<0:
-            Projectiles.remove(self)
-            del self
+Projectile_list =[]
+NPC_list =[]
+
+def UpdateNPC():
+    for npc in NPC_list:
+        npc.Update()
+        
+def UpdateDraw(screen):
+    for npc in NPC_list:
+        screen.blit(npc.Image,(npc.Position.x,npc.Position.y))
+        
+        
+def NewNpc(class_name):
+    modlue =__import__(class_name)
+    cls = getattr(modlue,class_name)
+    inst = cls()
+    return inst
