@@ -1,2 +1,3 @@
 # Pygame
-#小方块射击
+#启动方法:使用Python打开Game_main.py
+#确保安装了pygame

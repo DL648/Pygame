@@ -25,9 +25,9 @@ while True:
             
             
             
-    
-    vec=Vector2(random.randint(0,900),100)    
-    npc=main.NewNpc("ttf",vec)
+    if len(main.NPC_list)<100000:
+        vec=Vector2(random.randint(0,900),100)    
+        npc=main.NewNpc("ttf",vec)
     screen.fill((255,255,255))
     screen.blit(text,(0,0))
     
