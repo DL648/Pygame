@@ -13,7 +13,8 @@ class NPC(Entity):
             NPC_list.append(self)
         
         def Update(self):
-            pass
+            self.Position=self.Position+self.Velocity
+        @abstractmethod   
         def Draw(self,screen):
             pass
             

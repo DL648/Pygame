@@ -12,7 +12,7 @@ def UpdateDraw(screen):
         screen.blit(npc.Image,(npc.Position.x,npc.Position.y))
         
         
-def NewNpc(class_name,Pos=Vector2(50,50)):
+def NewNpc(class_name,Pos=Vector2(0,0)):
     modlue =__import__(class_name)
     cls = getattr(modlue,class_name)
     inst = cls()
