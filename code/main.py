@@ -1,21 +1,48 @@
-import pygame
-from pygame import Vector2
-Projectile_list =[]
-NPC_list =[]
+import pygame , sys
+from Settings import *
+from player import Player
+from npc import NPC
 
-def UpdateNPC():
-    for npc in NPC_list:
-        npc.Update()
+class Game:
+    def __init__(self):
         
-def UpdateDraw(screen):
-    for npc in NPC_list:
-        screen.blit(npc.Image,(npc.Position.x,npc.Position.y))
+        self.screen = pygame.display.set_mode((SCREEN_WIDTH,SCREEN_HEIGHT),pygame.SCALED)
+        self.colck = pygame.time.Clock()
+        self.font = pygame.font.Font(MyFont_Pull,50)
+        self.tick =0
         
-        
-def NewNpc(class_name,Pos=Vector2(0,0)):
-    modlue =__import__(class_name)
-    cls = getattr(modlue,class_name)
-    inst = cls()
-    inst.Position=Pos
-    return inst
+    def run(self):  
+        while True:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    exit()
+                    sys.exit()
+            
+            
+            
+            
+            NPC_list_count =self.font.render(f'忍者数量{len(NPC_list)}',False,'red')      
+            FPS = self.font.render(f'FPS:{self.colck.get_fps():.0f}',False,'red')        
+            if len(NPC_list)<255 and self.tick % 5 ==0:
+               npc =NPC()           
+            tick =self.colck.tick(60)
+            self.screen.fill((255,255,255))
+            for npc in NPC_list:
+                npc.up()
+                npc.draw(self.screen)
+          
+            self.screen.blit(NPC_list_count,(0,0))
+            self.screen.blit(FPS,(self.screen.get_width()-FPS.get_width(),self.screen.get_height()-FPS.get_height()*1.5))
+            self.tick+=1
+            pygame.display.update()    
+            
+            
+if __name__ == '__main__':
+     pygame.init()
+     
+     game =Game()
+     game.run()
 
+        
+        
+    
