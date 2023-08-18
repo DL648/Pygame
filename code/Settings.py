@@ -3,7 +3,8 @@ import pygame
 
 SCREEN_WIDTH = 720
 SCREEN_HEIGHT = 1280
-
-NPC_list =[]
+Max_NPC=255
+NPC_list = []
 
 MyFont_Pull ="..//Font/Minecraft.ttf"
+

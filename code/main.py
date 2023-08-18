@@ -10,7 +10,6 @@ class Game:
         self.colck = pygame.time.Clock()
         self.font = pygame.font.Font(MyFont_Pull,50)
         self.tick =0
-        
     def run(self):  
         while True:
             for event in pygame.event.get():
@@ -20,20 +19,26 @@ class Game:
             
             
             
+            self.tick +=1
             
             NPC_list_count =self.font.render(f'忍者数量{len(NPC_list)}',False,'red')      
             FPS = self.font.render(f'FPS:{self.colck.get_fps():.0f}',False,'red')        
-            if len(NPC_list)<255 and self.tick % 5 ==0:
+            if len(NPC_list)<Max_NPC and self.tick % 5 ==0:
                npc =NPC()           
             tick =self.colck.tick(60)
             self.screen.fill((255,255,255))
-            for npc in NPC_list:
-                npc.up()
-                npc.draw(self.screen)
-          
+            
+           
             self.screen.blit(NPC_list_count,(0,0))
             self.screen.blit(FPS,(self.screen.get_width()-FPS.get_width(),self.screen.get_height()-FPS.get_height()*1.5))
-            self.tick+=1
+            
+            if len(NPC_list)>=1:
+                for npc in NPC_list:
+                    npc.up()
+                    npc.draw(self.screen)
+                  #  pygame.draw.rect(self.screen,'red',npc.rect,2)
+                  #  pygame.draw.line(self.screen,'Green',(SCREEN_WIDTH,0),npc.rect.center)
+            
             pygame.display.update()    
             
             
