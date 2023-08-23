@@ -2,8 +2,8 @@ from pygame.math import Vector2
 from enum import Enum
 import pygame
 
-SCREEN_WIDTH = 1080
-SCREEN_HEIGHT = 2000
+SCREEN_WIDTH = 1280
+SCREEN_HEIGHT = 720
 color_black =(0,0,0)
 color_red=(255,80,80)
 color_green=(80,255,80)

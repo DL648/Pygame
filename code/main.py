@@ -7,13 +7,14 @@ class Game:
     def __init__(self):#初始化
         
         #设置游戏窗口和标题
-        self.screen =pygame.display.set_mode((SCREEN_WIDTH,SCREEN_HEIGHT),pygame.SCALED)
+        self.screen =pygame.display.set_mode((SCREEN_WIDTH,SCREEN_HEIGHT),pygame.SCALED|pygame.FULLSCREEN)
         pygame.display.set_caption('DL648')
         
         self.clock =pygame.time.Clock()
         self.font=pygame.font.Font("..//Font/Minecraft.ttf",30)
         self.time = 0
         self.mould=Game_Mould.Menu
+        self.rect =pygame.Rect(0,0,50,50)
      
     def run(self):
         while True:
@@ -29,17 +30,18 @@ class Game:
              if self.mould == Game_Mould.Menu:   
                 DrawMuenUI(self)
              if self.mould == Game_Mould.Play:
-                if len(player_list) == 0:
-                    player =Player()
-             
-                player.move(self)
+                if len(player_list)==0:
+                    player = Player()
                 DrawPlayUI(self)
+                player.move(game)
                 player.draw(game)
+                
+               
              
                  
                      
              
-             pygame.display.update()
+             pygame.display.flip()
          
 pygame.quit()
 

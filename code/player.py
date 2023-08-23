@@ -17,7 +17,17 @@ class Player:
         player_list.remove(self)
     
     def move(self,game):
-        pass
+        if self.rect.left<0:
+            self.rect.left=0
+        elif self.rect.right>game.screen.get_width():
+            self.rect.right=game.screen.get_width()
+        if self.rect.top<0:
+            self.rect.top=0
+        elif self.rect.top>game.screen.get_height():
+         self.rect.top=game.screen.get_height()
+           
+        self.rect.center = pygame.mouse.get_pos()
+       
         
             
     def draw(self,game):
