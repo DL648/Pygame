@@ -11,24 +11,19 @@ class Player:
         self.MaxLife =100
         self.Life =self.MaxLife
         player_list.append(self)
-        self.vec =Vector2(0,0)
+        
         
     def __del__(self):
         player_list.remove(self)
     
     def move(self,game):
-        if self.rect.left<0:
-            self.rect.left=0
-        elif self.rect.right>game.screen.get_width():
-            self.rect.right=game.screen.get_width()
-        if self.rect.top<0:
-            self.rect.top=0
-        elif self.rect.top>game.screen.get_height():
-         self.rect.top=game.screen.get_height()
+         event = pygame.event.poll()
+         if event.type == pygame.MOUSEMOTION:
+            
+            self.rect.move_ip(event.rel)
+          
+          
            
-        self.rect.center = pygame.mouse.get_pos()
-       
-        
             
     def draw(self,game):
         

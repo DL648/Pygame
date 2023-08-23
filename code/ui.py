@@ -10,9 +10,9 @@ def DrawMuenUI(game):
     game.screen.blit(Game_start_image,(SCREEN_WIDTH/2-Game_start_image.get_width()//2,SCREEN_HEIGHT*0.6))
     game.screen.blit(Game_exit_image,(SCREEN_WIDTH/2-Game_exit_image.get_width()//2,SCREEN_HEIGHT*0.75))
            
-    text =game.font.render(f'按键暂时没有用,游戏在{5-game.time/60:.0f}后开始',False,color_green)
+    text =game.font.render(f'按键暂时没有用,游戏在{3-game.time/60:.0f}秒后开始',False,color_green)
     game.screen.blit(text,(SCREEN_WIDTH/2-text.get_width()//2,SCREEN_HEIGHT * 0.4))
-    if 5- game.time/60==0:
+    if 3- game.time/60==0:
        game.mould =Game_Mould.Play
        
        
