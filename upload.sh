@@ -8,7 +8,7 @@ branch="master"
 git add .
 
 # 提交并添加提交信息
-read -p "请输入提交信息: " commit_msg
+read -p "提交信息: " commit_msg
 git commit -m "$commit_msg"
 
 # 推送到远程仓库

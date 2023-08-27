@@ -7,7 +7,7 @@ class Game:
     def __init__(self):#初始化
         
         #设置游戏窗口和标题
-        self.screen =pygame.display.set_mode((SCREEN_WIDTH,SCREEN_HEIGHT),pygame.SCALED|pygame.FULLSCREEN)
+        self.screen =pygame.display.set_mode((SCREEN_WIDTH,SCREEN_HEIGHT),pygame.SCALED)
         pygame.display.set_caption('DL648')
         
         self.clock =pygame.time.Clock()
@@ -36,10 +36,6 @@ class Game:
                 player.move(game)
                 player.draw(game)
                 
-               
-             
-                 
-                     
              
              pygame.display.flip()
          
